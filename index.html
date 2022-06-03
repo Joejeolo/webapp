@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+	<title>Herbs & Spices</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<meta name="description" content="A simple layerswitcher popup for OL3." />
+	<meta name="keywords" content="ol3, layer, layerswitcher, control, popup, jQuery" />
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Openlayers -->
+    <link rel="stylesheet" href="https://openlayers.org/en/latest/css/ol.css" />
+	<script type="text/javascript" src="https://openlayers.org/en/latest/build/ol.js"></script>
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL,Object.assign"></script>
+	
+	<!-- ol-ext -->
+    <link rel="stylesheet" href="http://viglino.github.io/ol-ext/dist/ol-ext.css" />
+  <script type="text/javascript" src="http://viglino.github.io/ol-ext/dist/ol-ext.js"></script>
+  <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+  <script src="https://unpkg.com/elm-pep"></script>
+	
+	<link rel="stylesheet" href="http://viglino.github.io/ol-ext/examples/style.css" />
+	<style>
+		html, body {
+			padding: 0;
+			margin: 0;
+			}
+		.title {
+			font-size: 30px;
+			color: black;
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			padding: 15px 5px 0px 5px;
+			}
+
+		.button {
+			background-color: #719d79;
+			box-shadow: 2px 2px 5px #283f2b;
+			border: none;
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			color: #283f2b;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 20px;
+			margin: 5px 5px 8px 15px;
+			cursor: pointer;
+			}	
+		.button:hover{
+			background-color: #283f2b;
+			color: #beccbb;
+			}
+		#help{
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			padding-top: 1.5em;
+			font-size: 0.9em;
+		}
+		#map {
+			width:100%; 
+			height:590px;
+			margin-top: -3px;
+			}
+		.ol-control.ol-legend { 
+			  left: auto;
+			  right: 2.5em;
+			}
+		.ol-control.ol-layerswitcher-popup { 
+			  position: absolute;
+			  right: 0.5em;
+			  text-align: left;
+			  top: 2em;
+			}
+		.ol-control.ol-select > button:before {
+			  content: "";
+			  }
+		.ol-overlay.help
+		{	width: 30%;
+			background: #fff;
+			color: #333;
+			box-shadow: 0px 0px 5px #000;
+			padding: 0.5em;
+			-webkit-transition: all 0.25s;
+			transition: all 0.25s;
+		}
+		/* style the close box */
+		.ol-overlay.help .ol-closebox
+		{	color: #369;
+			left: 1em;
+			top: 0.5em;
+		}
+		.ol-overlay.help .ol-closebox:before
+		{	content:"\f059";
+			font-family:FontAwesome;
+		}
+		/* help button */
+		.ol-control.help
+		{	top: 0.5em;
+			left: 0.5em;
+		}
+		.ol-control.help i
+		{	color: #fff;
+		}
+		.ol-zoom
+		{	left: auto;
+			right: 0.5em;
+			top: 5em;
+		}
+		.ol-control.ol-select {
+		  top: 2.5em;
+		  left: 0.5em;}
+		
+	</style>
+	
+	
+</head>
+<body >
+	<!-- title and nevigation-->
+	<div class="title" style="color: #283f2b"><strong>&nbsp;Thai Herbs & Spices | and where to find them!</strong></div>
+	
+	<div class="navigation">
+	<p style="background-color: #beccbb">
+	&nbsp;<button class="button" onclick="window.location.href='http://localhost:8080/assignment/index.html';"><strong>Web Map</strong></button>
+	<button class="button" onclick="window.location.href='http://localhost:8080/assignment/testlink.html';">Herbs & Spices info</button>
+	<button class="button" >Contact us</button></p> <!-- no link for this one yet in this demo-->	
+	</div>
+	
+	<!-- map -->
+	<div id="map"></div>
+	
+	<!--help tab-->
+	<div id="help">
+		<h1>Help</h1>
+		<p><i>To close this window, click <i class="fa fa-question-circle"></i> on the top left of menu</i></p>
+          <i class="fa fa-search"></i><strong style="color: #337ab7">  Searching & Filtering</strong>&nbsp;|   
+		  <strong style="color: black">Name</strong>: location name, e.g. Coles, IGA, etc. After typing in, press "Enter", or click "OK".
+		  <strong style="color: black">Suburb</strong>: Click dropdown and choose one suburb, the result will appear in the map instantly without pressing OK.
+		  <strong style="color: black">Type</strong>: The square buttons
+		   can be checked more than one, and this function need to press "OK" to execute.
+		  <strong style="color: black">List of Herbs & Spices</strong>: After toggle on button(s), the result will appear in the map instantly. If choosing more than one,
+		  the result will be those chosen herbs and spices all in one place. Name, Suburb, Type and list of Herbs & Spices can be combine together for filtering. 
+		  
+		  <hr>
+		  <i class="fa fa-map"></i><strong style="color: #337ab7">  Layer Switcher</strong>&nbsp;|   
+			Basemaps can be chosen only one at the time. Herbs & Spices layer can be toggle on and off. The toggled-on layer will be highlighted in blue.
+		  <hr>
+		  <i class="fa fa-plus"></i><strong style="color: #337ab7">  Zoom In/Out </strong>&nbsp;|   
+			by clicking or scrolling wheel on a mouse.
+		  <hr>
+		  <i class="fa fa-list"></i><strong style="color: #337ab7">  Legend</strong> &nbsp;|  
+			Legend panel can be collapse with x mark.
+		  <hr>
+		  <i class="fa fa-info"></i> <strong style="color: #337ab7">  Pop-up Infomation</strong> &nbsp;|    
+			Click on point feature(s) on the map to see pop-up, click on the map again to close. Move the window to the top-right of the map by clicking on the square icon on 
+			the top-right of pop-up window. Zoom in by clicking <i class="fa fa-search"></i>
+			<i><p style="color:#933617">! If pop-up window did not close, click another point to pop-up. Then, click anywhere on the map to close the window !</p></i>
+
+        
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+	
+</body>
+</html>

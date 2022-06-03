@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+	<title>Herbs & Spices</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<meta name="description" content="A simple layerswitcher popup for OL3." />
+	<meta name="keywords" content="ol3, layer, layerswitcher, control, popup, jQuery" />
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<!-- FontAwesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Openlayers -->
+    <link rel="stylesheet" href="https://openlayers.org/en/latest/css/ol.css" />
+	<script type="text/javascript" src="https://openlayers.org/en/latest/build/ol.js"></script>
+	<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL,Object.assign"></script>
+	
+	<!-- ol-ext -->
+    <link rel="stylesheet" href="http://viglino.github.io/ol-ext/dist/ol-ext.css" />
+  <script type="text/javascript" src="http://viglino.github.io/ol-ext/dist/ol-ext.js"></script>
+  <!-- Pointer events polyfill for old browsers, see https://caniuse.com/#feat=pointer -->
+  
+	<style>
+		html, body {
+			padding: 0;
+			margin: 0;
+			font-family: Arial, Helvetica, sans-serif;
+			}
+		h3,h4{
+			font-family: Arial, Helvetica, sans-serif;
+			}
+		.title {
+			font-size: 30px;
+			color: black;
+			font-family: Arial, Helvetica, sans-serif;
+			padding: 15px 5px 0px 5px;
+			}
+		
+		.button {
+			background-color: #719d79;
+			box-shadow: 2px 2px 5px #283f2b;
+			border: none;
+			color: #283f2b;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 20px;
+			margin: 5px 5px 8px 15px;
+			cursor: pointer;
+			}	
+		.button:hover{
+			background-color: #283f2b;
+			color: #beccbb;
+			}
+		.toc{
+			float: left;
+			background-color: #beccbb;
+			height: 590px;
+			width: 27%;
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			}
+		.contents{
+			float: right;
+			background-color: white;
+			font-family: Arial, Helvetica, sans-serif;
+			height: 590px;
+			width: 70%;
+			padding: 10px;}
+	</style>
+	<link rel="stylesheet" href="http://viglino.github.io/ol-ext/examples/style.css" />
+</head>
+<body >
+	<!-- title and nevigation-->
+	<div class="title" style="color: #283f2b"><strong>&nbsp;Thai Herbs & Spices and where to find them!</strong></div>
+	
+	<div class="navigation">
+	<p style="background-color: #beccbb">
+	&nbsp;<button class="button" onclick="window.location.href='http://localhost:8080/assignment/index.html';">Web Map</button>
+	<button class="button" onclick="window.location.href='http://localhost:8080/assignment/testlink.html';"><strong>Herbs & Spices info</strong></button>
+	<button class="button" >Contact us</button></p> <!-- no link for this one yet in this demo-->	
+	</div>
+
+	<div class="toc">
+		<h3><strong><i class="fa fa-quote-left fa-2x fa-pull-left fa-border" style="color:white";></i>The purpose of this page is a part of the website link testing ! </strong></h3>
+	</div>
+	
+	<div class="contents">
+		<section class="overview">
+		<h3>Lorem Ipsum</h3>
+		<h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed nibh efficitur, tristique sapien non, gravida lectus. Maecenas pharetra mollis fermentum. Etiam dolor est, mattis at nulla a, efficitur eleifend justo. Aenean sed libero in ante pellentesque facilisis. In hac habitasse platea dictumst. Donec efficitur, justo vitae lobortis vehicula, libero turpis iaculis est, et pulvinar ex purus sed est. Morbi lobortis eros et urna consequat lacinia et nec lorem. Fusce auctor mi erat, vel convallis mauris vehicula id. Vivamus lobortis mauris ac ipsum ullamcorper, eget fermentum nulla cursus. Aenean vel hendrerit velit, nec fermentum tellus. Etiam dapibus lacinia lacinia. Phasellus sed mi ac metus convallis lacinia ac sit amet tortor. Vestibulum elit ante, dignissim sit amet vehicula non, ornare non nibh.
+		</p>
+		<p>
+		Ut nec gravida enim, quis fringilla purus. Quisque fermentum magna nunc, vitae feugiat odio lobortis vel. Morbi sapien nisi, interdum at mollis sit amet, tincidunt id metus. Aliquam a ante ac lorem commodo egestas. Nunc sollicitudin risus quis quam mattis, eget ornare nibh mollis. Praesent et vulputate diam. Nunc pellentesque venenatis odio. Nulla rutrum tellus nibh, eget efficitur lacus dapibus sit amet. Curabitur condimentum convallis elit a consequat. Duis ac mauris at magna pretium aliquam sed eget justo.
+		</p>
+		<p>
+		Vivamus vulputate quam eu tincidunt elementum. Vestibulum nunc nibh, lobortis at erat quis, commodo ornare nunc. Morbi sit amet felis tempor, dictum dui vel, ultricies turpis. Mauris eget porttitor est, at dignissim dui. Mauris malesuada, leo et ultricies consectetur, ante leo dictum libero, quis fringilla odio arcu sit amet ligula. Sed at dictum felis. Duis nibh velit, dictum sit amet finibus non, porttitor vitae nunc. Etiam vel justo non nunc luctus vehicula. Suspendisse finibus, lacus eu maximus dapibus, nisl tortor porta nulla, vel aliquam ex sapien tristique tellus. Duis id nisi ex. Sed sed aliquam libero, vel dignissim diam. Quisque dui arcu, mollis vitae ultricies in, eleifend sed turpis.
+		</p>
+		<div id="generated">Generated 3 paragraphs, 308 words, 2031 bytes of <a href="https://www.lipsum.com/" title="Lorem Ipsum">Lorem Ipsum</a></div>
+	</div>
+		
+		</section>
+	</div>
